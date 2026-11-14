@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-300;
+  }
+
+  * {
+    @apply selection:bg-blue-500/20 selection:text-inherit;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold hover:from-blue-600 hover:to-purple-700 transition-all;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-all;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all;
+  }
+
+  .card-glass {
+    @apply rounded-2xl backdrop-blur-xl bg-white/80 dark:bg-slate-900/80 border border-white/20 dark:border-slate-700/20 shadow-xl;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .backdrop-blur-xs {
+    @apply backdrop-blur-[2px];
+  }
+
+  .text-shadow-lg {
+    @apply drop-shadow-lg;
+  }
+}
+
+/* Smooth transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--color-slate-100, 241 90% 96%));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--color-slate-300, 215 14% 34%));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--color-slate-400, 215 13% 47%));
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: hsl(var(--color-slate-800, 217 33% 17%));
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(var(--color-slate-600, 215 14% 34%));
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--color-slate-500, 215 16% 47%));
+}
